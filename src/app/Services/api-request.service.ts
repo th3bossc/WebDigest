@@ -11,8 +11,8 @@ export interface apiInterface {
   providedIn: 'root'
 })
 export class ApiRequestService {
+  private backendUrl : string = "https://Th3BossC-qnaBackend.hf.space/question";
 
-  private backendUrl : string = "http://127.0.0.1:5000/question";
   constructor(private http : HttpClient) { }
 
   sendMessage(question : string, url : string) {
@@ -20,6 +20,6 @@ export class ApiRequestService {
   }
 
   checkOnline() {
-    this.http.get('http://127.0.0.1:5000/').subscribe(() => console.log('yayyy'));
+    this.http.get('http://127.0.0.1:5000/').subscribe();
   }
 }

@@ -7,6 +7,10 @@
 
 html {
     position : relative;
+    border-radius : 12px;
+    background-color: transparent;
+    width: 489px !important;
+    height: 433px !important; 
 }
 
 
@@ -26,12 +30,3 @@ body {
 }
 
 
-@keyframes jump {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(20%);
-    }
-    
-}

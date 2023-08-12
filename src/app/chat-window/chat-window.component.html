@@ -1,6 +1,6 @@
 <div class="container">
     <div class="title">
-        Page Query
+        Page Query <i class="fa-solid fa-circle"></i>
     </div>
     <hr>
     <div class="chat-window" *ngIf="messages.length"  #chatWindow>
@@ -8,7 +8,7 @@
             {{ message.content }}
         </div>
         <div class="dots" *ngIf="messageSent">
-            <span *ngFor="let i of [1, 2, 3]" class="dot" style="--delay : {{i}}"> <i class="pi pi-circle-fill"></i></span>
+            <span *ngFor="let i of [1, 2, 3]" class="dot" style="--delay : {{i}}"> <i class="actual-dot"></i> </span>
         </div>
     </div>
     <div class="empty-chat" *ngIf="!messages.length">

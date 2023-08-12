@@ -32,19 +32,19 @@ export class ChatWindowComponent {
     const question = this.inputForm.value['inputText'];
     this.messages.push({ content : question, user : 'user' });
     this.messageSent = true;
-    console.log('something started');
-    // chrome.tabs.query({ active : true, currentWindow : true }, function (tabs) {
-      this.apiService.sendMessage(question, 'https://exposnitc.github.io/expos-docs/roadmap/stage-04/').subscribe({
+
+    chrome.tabs.query({ active : true, currentWindow : true}).then((tabs) => {
+      this.apiService.sendMessage(question, tabs[0].url).subscribe({
         next : (data) => {
           this.messages.push({ content : data['answer'], user : 'bot' });
           this.messageSent = false; 
         },
         error : (error) => {
-          this.messages.push({ content : "random output", user : 'bot'});
+          this.messages.push({ content : "Can't reach server at the moment", user : 'bot'});
           this.messageSent = false;
         }
-      })
-    // })
+      });
+    });
   this.inputForm.reset();
   }
 
